@@ -1,7 +1,7 @@
 # Sorting Conference List
 
 Insertion Sort by number of members (descending)
-Heap Soer by price (ascenfing)
+Heap Sort by price (ascenfing)
 
 Write on C# language
 
