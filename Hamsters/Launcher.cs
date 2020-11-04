@@ -9,7 +9,7 @@ namespace Hamsters
     {
         static void Main(string[] args)
         {
-            const string pathIn = @"D:\projects\Algo\Hamsters\hamstr_in.txt";
+            const string pathIn = @"D:\projects\Algo\Hamsters\hamstr_in2.txt";
             const string pathOut = @"D:\projects\Algo\Hamsters\hamstr_out.txt";
             int hamsterCounter = 0;
             int quantityEat = 0;
@@ -25,22 +25,25 @@ namespace Hamsters
         {
             if(list.Count != 0) 
             {
-                for (hamsterCounter = 0; hamsterCounter < list.Count; hamsterCounter++)
+                int left = 1;
+                int right = list.Count;
+                while (left <= right)
                 {
+                    hamsterCounter = (left + right) / 2;
                     int sumOfEat = 0;
                     Selecter.QuickSelect(list, hamsterCounter);
                     for (int i = 0; i <= hamsterCounter; i++)
                     {
                         sumOfEat += list[i].SumOfEat(hamsterCounter);
                     }
-                    if (sumOfEat > quantityEat)
+                    if (quantityEat < sumOfEat)
                     {
-                        break;
+                        right = hamsterCounter - 1;
                     }
-                    if (hamsterCounter == list.Count - 1)
+                    else
                     {
                         hamsterCounter++;
-                        break;
+                        left = hamsterCounter;
                     }
                 }
             }
